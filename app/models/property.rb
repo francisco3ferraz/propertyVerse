@@ -14,6 +14,9 @@ class Property < ApplicationRecord
 
     has_many_attached :images, dependent: :destroy
 
+    has_many :favorites, dependent: :destroy
+    has_many :favorited_users, through: :favorites, source: :user
+
     has_many :reviews, as: :reviewable
 
     def address
@@ -25,7 +28,4 @@ class Property < ApplicationRecord
         images.first
     end
 
-    def average_rating
-        reviews.average(:rating)
-    end
 end
