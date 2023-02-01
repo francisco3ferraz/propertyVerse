@@ -19,12 +19,10 @@ RSpec.describe "Api::Favorites", type: :request do
         end
 
         it "creates a new favorite" do
-            expect do
-            end
-            
             expect {
                 post api_favorites_path, params: params, headers: headers
             }.to change(Favorite, :count).by(1)
+            
             expect(response.status).to eq 201
         end
 

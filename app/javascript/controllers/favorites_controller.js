@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export default class extends Controller
 {
+    HEADERS = { 'ACCEPT': 'application/json' }
     favorite() {
 
         if (this.element.dataset.userLoggedIn === 'false') {
@@ -10,26 +11,44 @@ export default class extends Controller
         }
 
         if (this.element.dataset.favorited === 'true') {
-            axios.delete(this.element.dataset.unfavoriteUrl, {     
-                headers: {
-                    'ACCEPT': 'application/json'
-                }
-            }).then((response) => {
-                this.element.dataset.favorited = 'false';
-                this.element.setAttribute('fill', 'rgba(0, 0, 0, 0.5)');
-            })
+            this.unfavoriteProperty();
         } else {
-            axios.post(this.element.dataset.favoriteUrl, {
-                user_id: this.element.dataset.userId,
-                property_id: this.element.dataset.propertyId
-            }, { 
-                headers: {
-                    'ACCEPT': 'application/json'
-                }
-            }).then((response) => {
-                this.element.setAttribute('fill', '#F47174');
-                this.element.dataset.favorited = 'true';
-            });
+            this.favoriteProperty();
         }
+    }
+
+    getFavoritePath()
+    {
+        return 'api/favorites'
+    }
+
+    getUnfavoritePath(favoriteId)
+    {
+        return `api/favorites/${favoriteId}`
+    }
+
+    favoriteProperty ()
+    {
+        axios.post(this.getFavoritePath(), {
+            user_id: this.element.dataset.userId,
+            property_id: this.element.dataset.propertyId
+        }, { 
+            headers:  this.HEADERS
+        }).then((response) => {
+            this.element.dataset.favorited = 'true';
+            this.element.dataset.favoriteId = response.data.id;
+            this.element.setAttribute('fill', '#F47174');
+        });
+    }
+
+    unfavoriteProperty ()
+    {
+        axios.delete(this.getUnfavoritePath(this.element.dataset.favoriteId), {     
+            headers: this.HEADERS 
+        }).then((response) => {
+            this.element.dataset.favorited = 'false';
+            this.element.dataset.favoriteId = '';
+            this.element.setAttribute('fill', 'rgba(0, 0, 0, 0.5)');
+        })
     }
 }
