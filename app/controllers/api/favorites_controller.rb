@@ -1,42 +1,48 @@
 module Api
     class FavoritesController < ApplicationController
 
-        # nullify the session for the duration of the request
-        protect_from_forgery with: :null_session
-
-
-        # Create a new Favorite [ User Favorites Property ]
-        def create
-            favorite = Favorite.create!(favorite_params)
-
-            respond_to do |format|
-                format.json do
-                    render json: serialize_favorite(favorite), status: :created
-                end
-            end
+      # proteção contra ataques de falsificação de solicitações
+      protect_from_forgery with: :null_session
+  
+      def create
+        # cria um novo favorito a partir dos parâmetros enviados
+        favorite = Favorite.create!(favorite_params)
+  
+        # responde a request na formatação JSON
+        respond_to do |format|
+          format.json do
+            # renderiza a resposta JSON com o status de criação bem-sucedida (201)
+            render json: serialize_favorite(favorite), status: :created
+          end
         end
-
-        # Delete a Favorite [ User Unfavorites Property ]
-        def destroy
-            favorite = Favorite.find(params[:id])
-            favorite.destroy!
-
-            respond_to do |format|
-                format.json do
-                    render json: serialize_favorite(favorite), status: 204
-                end
-            end
+      end
+  
+      def destroy
+        # encontra o favorito pelo ID especificado nos parâmetros
+        favorite = Favorite.find(params[:id])
+        # exclui o favorito
+        favorite.destroy!
+  
+        # responde a request na formatação JSON
+        respond_to do |format|
+          format.json do
+            # renderiza a resposta JSON com o status de sucesso sem conteúdo (204)
+            render json: serialize_favorite(favorite), status: 204
+          end
         end
-        
-        private 
-
-        def favorite_params
-            params.permit(:user_id, :property_id)
-        end
-
-        def serialize_favorite(favorite)
-            FavoriteSerializer.new(favorite).serializable_hash[:data].to_json
-        end
-
+      end
+  
+      private
+  
+      # permite apenas os parâmetros especificados
+      def favorite_params
+        params.permit(:user_id, :property_id)
+      end
+  
+      # converte o objeto favorito para bytes, para ser enviado na resposta JSON
+      def serialize_favorite(favorite)
+        FavoriteSerializer.new(favorite).serializable_hash[:data].to_json
+      end
     end
-end
+  end
+  

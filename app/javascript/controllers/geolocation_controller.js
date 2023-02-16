@@ -45,9 +45,4 @@ export default class extends Controller
             propertyTarget.querySelector('[data-distance-away]').innerHTML = `${Math.round(convertDistance(distanceFrom, 'km'))}km away`;
         });
     }
-
-    favorite()
-    {
-        
-    }
 }
