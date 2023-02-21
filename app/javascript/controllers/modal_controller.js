@@ -7,30 +7,33 @@ export default class extends Controller
 
     connect()
     {
-        document.getElementById('modal-wrapper').addEventListener('click', this.closeModal);
+        document.getElementById(`modal-${this.element.dataset.modalTriggerId}-wrapper`).addEventListener('click', (event) => {
+            this.closeModal(event, this.element.dataset.modalTriggerId)
+        });
+
         this.closeButtonTarget.addEventListener('click', ()=> {
-            leave(document.getElementById('modal-wrapper'));
-            leave(document.getElementById('modal-backdrop'));
-            leave(document.getElementById('modal-panel'));
+            leave(document.getElementById(`modal-${this.element.dataset.modalTriggerId}-wrapper`));
+            leave(document.getElementById(`modal-${this.element.dataset.modalTriggerId}-backdrop`));
+            leave(document.getElementById(`modal-${this.element.dataset.modalTriggerId}-panel`));
         });
     }
 
-    closeModal(event)
+    closeModal(event, triggerId)
     {
-        const modalPanelClicker = document.getElementById('modal-panel').contains(event.target);
+        const modalPanelClicked = document.getElementById(`modal-${triggerId}-panel`).contains(event.target);
 
-        if ( !modalPanelClicker && event.target.id !== 'modal-trigger')
+        if ( !modalPanelClicked && event.target.id !== triggerId)
         {
-            leave(document.getElementById('modal-wrapper'));
-            leave(document.getElementById('modal-backdrop'));
-            leave(document.getElementById('modal-panel'));
+            leave(document.getElementById(`modal-${triggerId}-wrapper`));
+            leave(document.getElementById(`modal-${triggerId}-backdrop`));
+            leave(document.getElementById(`modal-${triggerId}-panel`));
         }
     }
 
     showModal()
     {
-        enter(document.getElementById('modal-wrapper'));
-        enter(document.getElementById('modal-backdrop'));
-        enter(document.getElementById('modal-panel'));
+        enter(document.getElementById(`modal-${this.element.dataset.modalTriggerId}-wrapper`));
+        enter(document.getElementById(`modal-${this.element.dataset.modalTriggerId}-backdrop`));
+        enter(document.getElementById(`modal-${this.element.dataset.modalTriggerId}-panel`));
     }
 }
