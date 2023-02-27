@@ -1,4 +1,7 @@
-<div>
+<div 
+    data-controller="share-modal"
+    data-share-url="<%= url_for(only_path: false) %>"
+>
     <div class="flex mb-5">
         <div class="flex-none cursor-pointer" data-modal-target="closeButton">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -21,7 +24,7 @@
     </div>
 
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div class="relative rounded-lg border border-gray-300 bg-white px-4 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+        <div data-action="click->share-modal#copyLink" class="cursor-pointer hover:bg-gray-100 relative rounded-lg border border-gray-300 bg-white px-4 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
             <div class="flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="h-9 w-9 rounded-lg block" aria-hidden="true" role="presentation" focusable="false">
                     <path d="M25 5a4 4 0 0 1 4 4v17a5 5 0 0 1-5 5H12a5 5 0 0 1-5-5V10a5 5 0 0 1 5-5h13zm0 2H12a3 3 0 0 0-3 3v16a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V9a2 2 0 0 0-2-2zm-3-6v2H11a6 6 0 0 0-5.996 5.775L5 9v13H3V9a8 8 0 0 1 7.75-7.996L11 1h11z"></path>
@@ -31,7 +34,7 @@
                 <p class="text-md font-medium text-gray-900">Copy Link</p>
             </div>
         </div>
-        <div class="relative rounded-lg border border-gray-300 bg-white px-4 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+        <div data-action="click->share-modal#shareWhatsapp" class="cursor-pointer hover:bg-gray-100 relative rounded-lg border border-gray-300 bg-white px-4 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
             <div class="flex-shrink-0">
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 rounded-lg block" aria-hidden="true" role="presentation" focusable="false">
                     <path d="m32 0v32h-32v-32z" fill="#25d366"></path>
@@ -42,7 +45,7 @@
                 <p class="text-md font-medium text-gray-900">WhatsApp</p>
             </div>
         </div>
-        <div class="relative rounded-lg border border-gray-300 bg-white px-4 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+        <div data-action="click->share-modal#shareTwitter" class="cursor-pointer hover:bg-gray-100 relative rounded-lg border border-gray-300 bg-white px-4 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
             <div class="flex-shrink-0">
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 rounded-lg block" aria-hidden="true" role="presentation" focusable="false">
                     <path fill="#1DA1F2" d="M0 0H32V32H0z"></path>
@@ -53,7 +56,7 @@
                 <p class="text-md font-medium text-gray-900">Twitter</p>
             </div>
         </div>
-        <div class="relative rounded-lg border border-gray-300 bg-white px-4 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+        <div data-action="click->share-modal#shareFacebook" class="cursor-pointer hover:bg-gray-100 relative rounded-lg border border-gray-300 bg-white px-4 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
             <div class="flex-shrink-0">
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 rounded-lg block" aria-hidden="true" role="presentation" focusable="false">
                     <path fill="#1877F2" d="M32 0v32H0V0z"></path>
