@@ -4,6 +4,7 @@ import axios from 'axios';
 export default class extends Controller
 {
     HEADERS = { 'ACCEPT': 'application/json' }
+    
     favorite() {
 
         if (this.element.dataset.userLoggedIn === 'false') {
@@ -19,16 +20,17 @@ export default class extends Controller
 
     getFavoritePath()
     {
-        return 'api/favorites'
+        return '/api/favorites'
     }
 
     getUnfavoritePath(favoriteId)
     {
-        return `api/favorites/${favoriteId}`
+        return `/api/favorites/${favoriteId}`
     }
 
-    favoriteProperty ()
+    favoriteProperty(e)
     {
+        e.preventDefault();
         axios.post(this.getFavoritePath(), {
             user_id: this.element.dataset.userId,
             property_id: this.element.dataset.propertyId
@@ -37,18 +39,19 @@ export default class extends Controller
         }).then((response) => {
             this.element.dataset.favorited = 'true';
             this.element.dataset.favoriteId = response.data.id;
-            this.element.setAttribute('fill', '#F47174');
+            this.element.setAttribute('fill', this.element.dataset.favoritedColor);
         });
     }
 
-    unfavoriteProperty ()
+    unfavoriteProperty(e)
     {
+        e.preventDefault();
         axios.delete(this.getUnfavoritePath(this.element.dataset.favoriteId), {     
             headers: this.HEADERS 
         }).then((response) => {
             this.element.dataset.favorited = 'false';
             this.element.dataset.favoriteId = '';
-            this.element.setAttribute('fill', 'rgba(0, 0, 0, 0.5)');
+            this.element.setAttribute('fill', this.element.dataset.unfavoritedColor);
         })
     }
 }

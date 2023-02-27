@@ -27,12 +27,27 @@
                     <span>Share</span>
                 <% end %>
 
-                <%= link_to "" do %>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 32 32" stroke-width="2px" stroke="black" class="w-5 h-5 cursor-pointer inline-block relative" style="bottom: 1px">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z" />
-                    </svg>
-                    <span>Save</span>
-                <% end %>
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  data-controller="favorites"
+                  data-favorited="<%= @property.favorited_by?(current_user) %>"
+                  data-user-logged-in="<%= user_signed_in? %>"
+                  data-user-id="<%= current_user&.id %>"
+                  data-property-id="<%= @property.id %>"
+                  data-favorited-color="#F47174"
+                  data-unfavorited-color="white"
+                  data-favorite-id="<%= @property.favorites.find_by(user: current_user)&.id %>"
+                  data-action="click->favorites#favorite"
+                  fill="<%= @property.favorited_by?(current_user) ? '#F47174' : 'white' %>"       
+                  viewBox="0 0 32 32"
+                  stroke-width="2px" 
+                  stroke="black" 
+                  class="w-5 h-5 cursor-pointer inline-block relative bg-transparent" 
+                  style="bottom: 1px"
+                >   
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z" />
+                </svg>
+                <span class="cursor-pointer">Save</span>
             </div>
         </div>
 

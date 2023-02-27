@@ -19,7 +19,7 @@
                             <span class="sr-only">view details</span>
                         </button>
 
-                        <div class="flex flex-row-reverse p-4">
+                        <div class="flex flex-row-reverse p-2">
                             <svg 
                                 xmlns="http://www.w3.org/2000/svg"
                                 data-controller="favorites"
@@ -27,6 +27,8 @@
                                 data-user-logged-in="<%= user_signed_in? %>"
                                 data-user-id="<%= current_user&.id %>"
                                 data-property-id="<%= property.id %>"
+                                data-favorited-color="#F47174"
+                                data-unfavorited-color="rgba(0, 0, 0, 0.5)"
                                 data-favorite-id="<%= property.favorites.find_by(user: current_user)&.id %>"
                                 data-action="click->favorites#favorite"
                                 fill="<%= property.favorited_by?(current_user) ? '#F47174' : 'rgba(0, 0, 0, 0.5)' %>" 
