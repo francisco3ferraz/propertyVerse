@@ -9,7 +9,8 @@ export default class extends Controller
 
     shareWhatsapp()
     {
-        console.log("aa")
+        var x = document.URL
+        window.location.href = "whatsapp://send?text="+x
     }
 
     shareFacebook()
