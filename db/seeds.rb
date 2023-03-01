@@ -4,7 +4,7 @@ Faker::Config.locale = 'pt'
     property = Property.create!(
         name: Faker::Lorem.unique.word,
         headline: Faker::Lorem.unique.sentence,
-        description: Faker::Lorem.unique.paragraph,
+        description: Faker::Lorem.unique.paragraphs(number: 30).join(" "),
         address_1: Faker::Address.street_address,
         city: Faker::Address.city,
         state: Faker::Address.state,
