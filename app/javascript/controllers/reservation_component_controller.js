@@ -6,16 +6,28 @@ export default class extends Controller
     static targets = ['checkin', 'checkout'];
     connect()
     {
-        let checkinPicker = new Datepicker(this.checkinTarget, { 
-            minDate: '3/2/2023'
+        const checkinPicker = new Datepicker(this.checkinTarget, { 
+            minDate: this.element.dataset.defaultCheckinDate
         });
 
-        checkinPicker.setOptions({
-            minDate: '4/2/2023'
+        const checkoutPicker = new Datepicker(this.checkoutTarget, { 
+            minDate: this.element.dataset.defaultCheckoutDate
         });
 
-        checkinPicker.setOptions({
-            minDate: '5/2/2023'
+        this.checkinTarget.addEventListener('changeDate', (e) => {
+            const date = new Date(e.target.value);
+            date.setDate(date.getDate() + 1);
+            checkoutPicker.setOptions({
+                minDate: date
+            });
+        });
+
+        this.checkoutTarget.addEventListener('changeDate', (e) => {
+            const date = new Date(e.target.value);
+            date.setDate(date.getDate() - 1);
+            checkinPicker.setOptions({
+                maxDate: date
+            });
         });
 
     }
