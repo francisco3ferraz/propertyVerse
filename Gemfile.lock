@@ -86,6 +86,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     e2mmap (0.1.0)
     erubi (1.11.0)
     factory_bot (6.2.1)
@@ -269,6 +273,11 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stripe (8.3.0)
+    stripe-rails (2.4.0)
+      rails (>= 5.1)
+      responders
+      stripe (>= 3.15.0)
     tailwindcss-rails (2.0.21-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -303,6 +312,7 @@ DEPENDENCIES
   bootsnap
   debug
   devise
+  dotenv-rails
   factory_bot_rails
   faker
   geocoder
@@ -320,6 +330,7 @@ DEPENDENCIES
   solargraph
   sprockets-rails
   stimulus-rails
+  stripe-rails
   tailwindcss-rails
   turbo-rails
   tzinfo-data
