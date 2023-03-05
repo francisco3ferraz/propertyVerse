@@ -330,7 +330,7 @@ DEPENDENCIES
   solargraph
   sprockets-rails
   stimulus-rails
-  stripe-rails
+  stripe-rails (~> 2.4)
   tailwindcss-rails
   turbo-rails
   tzinfo-data
