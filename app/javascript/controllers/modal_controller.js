@@ -7,10 +7,12 @@ export default class extends Controller
 
     connect()
     {
+        // Close the modal if the wrapper is clicked outside of the panel.
         document.getElementById(`modal-${this.element.dataset.modalTriggerId}-wrapper`).addEventListener('click', (event) => {
             this.closeModal(event, this.element.dataset.modalTriggerId)
         });
 
+        // Close the modal when the close button is clicked.
         this.closeButtonTarget.addEventListener('click', ()=> {
             leave(document.getElementById(`modal-${this.element.dataset.modalTriggerId}-wrapper`));
             leave(document.getElementById(`modal-${this.element.dataset.modalTriggerId}-backdrop`));
@@ -18,6 +20,7 @@ export default class extends Controller
         });
     }
 
+    // Close the modal if the user clicks outside of the panel.
     closeModal(event, triggerId)
     {
         const modalPanelClicked = document.getElementById(`modal-${triggerId}-panel`).contains(event.target);
@@ -30,6 +33,7 @@ export default class extends Controller
         }
     }
 
+    // Show the modal by entering the wrapper, backdrop and panel.
     showModal()
     {
         enter(document.getElementById(`modal-${this.element.dataset.modalTriggerId}-wrapper`));

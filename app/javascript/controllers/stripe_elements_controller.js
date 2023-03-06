@@ -2,27 +2,34 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller
 {
+    // CSS classes for the submit button.
     submitButtonClasses = "mt-4 w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 cursor-pointer";
-        
-    connect()
+
+    // Add classes to the Stripe form elements.
+    connect() 
     {
+        // Add "hidden" class to the Stripe form label.
         this.getStripeFormLabel().classList.add('hidden');
-        this.getStripeCardElement().classList.add('mt-4')
+
+        // Add "mt-4" class to the Stripe card element.
+        this.getStripeCardElement().classList.add('mt-4');
+        
+        // Add the submitButtonClasses to the Stripe submit button's class name.
         this.getStripeSubmitButton().className += this.submitButtonClasses;
     }
 
-    getStripeCardElement()
-    {
+    // Get the Stripe card element.
+    getStripeCardElement() {
         return document.getElementById('card-element');
     }
 
-    getStripeSubmitButton()
-    {
+    // Get the Stripe submit button.
+    getStripeSubmitButton() {
         return document.querySelector('#stripe-form input[type="submit"]');
     }
 
-    getStripeFormLabel()
-    {
+    // Get the Stripe form label.
+    getStripeFormLabel() {
         return document.querySelector('label[for="card_element"]');
     }
 }

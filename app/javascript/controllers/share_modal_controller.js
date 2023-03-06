@@ -2,24 +2,21 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller
 {
-    copyLink()
+
+    // Copy current page URL to the clipboard.
+    copyLink() 
     {
-        navigator.clipboard.writeText(this.element.dataset.shareUrl)
+        navigator.clipboard.writeText(this.element.dataset.shareUrl);
     }
 
-    shareWhatsapp()
+    // Share current page URL on WhatsApp.
+    shareWhatsapp() 
     {
-        var x = document.URL
-        window.location.href = "whatsapp://send?text="+x
+        // Get the current page URL.
+        var x = document.URL;
+
+        // Open WhatsApp with the page URL as the shared text.
+        window.location.href = "https://web.whatsapp.com/send?text="+x 
     }
 
-    shareFacebook()
-    {
-        console.log("aa")
-    }
-
-    shareTwitter()
-    {
-        console.log("aa")
-    }
 }

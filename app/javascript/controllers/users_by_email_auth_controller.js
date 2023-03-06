@@ -1,23 +1,22 @@
 import { Controller } from '@hotwired/stimulus';
 import axios from 'axios';
 
-// exporta a classe como o controller padrão
 export default class extends Controller 
 {
-    // declara os elementos HTML a serem manipulados pelo controlador
+    // declares the HTML elements to be manipulated by the controller
     static targets = ['email', 'emailWrapper', 'submit', 'invalidSvg', 'invalidMsg'];
 
-    // método chamado quando o controlador é conectado a uma página
+    // method called when the controller is connected to a page
     connect()
     {
-        // adicionar event listener de um click ao butao submit
+        // adds a click event listener to the submit button
         this.submitTarget.addEventListener('click', (e) => {
-            // previne o envio do formulário)
+            // prevents the form from being submitted
             e.preventDefault();
 
-            // verifica se o valor do campo de email é vazio
+            // checks if the value of the email field is empty
             if (this.emailTarget.value.length === 0) {
-                // adiciona as classes CSS para marcar o campo de email como inválido
+                // adds CSS classes to mark the email field as invalid
                 this.emailWrapperTarget.classList.add('invalid-inset-input-text-field');
                 this.emailTarget.classList.add('invalid-inset-input-text-field');
                 this.emailWrapperTarget.classList.remove('focus:ring-blue-500');
@@ -25,8 +24,8 @@ export default class extends Controller
                 this.invalidSvgTarget.classList.remove('hidden');
                 this.invalidMsgTarget.classList.remove('hidden');
             } else {
-                // realiza um request GET ao endpoint "/api/users_by_email"
-                // passando o valor do campo de email como parâmetro
+                // makes a GET request to the "/api/users_by_email" endpoint,
+                // passing the value of the email field as a parameter
                 axios.get('/api/users_by_email', {
                     params: {
                         email: this.emailTarget.value
@@ -35,15 +34,16 @@ export default class extends Controller
                         'ACCEPT': 'application/json'
                     }
                 })
-                // se a requisição for bem-sucedida, redireciona para "/users/sign_in"
+                // if the request succeeds, redirect to "/users/sign_in"
                 .then((response) => {
                     Turbo.visit('/users/sign_in');
                 })
-                // se a requisição falhar, redireciona para "/users/sign_up"
+                // if the request fails, redirect to "/users/sign_up"
                 .catch((response) => {
                     Turbo.visit('/users/sign_up');
                 });
             }
         });
     }
+
 }
