@@ -1,7 +1,8 @@
 #frozen_String_literal: true
 
 class Profile < ApplicationRecord
-
+  include Countriable
+  
   # Association between Profile and User models
   belongs_to :user
 
@@ -13,7 +14,12 @@ class Profile < ApplicationRecord
 
   # Return formatted address string
   def address
-    [state, country].compact.join(', ')
+    [state, country_name].compact.join(', ')
+  end
+
+  # Return the full name of the user
+  def full_name
+    "#{first_name} #{last_name}". squish
   end
 
 end

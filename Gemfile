@@ -15,6 +15,8 @@ gem "devise"
 gem "solargraph"
 gem 'jsonapi-serializer'
 
+gem "country_select", "~> 6.0"
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -55,6 +57,8 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 gem "sassc-rails"
+
+
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"

@@ -1,6 +1,7 @@
 #frozen_String_literal: true
 
 class Property < ApplicationRecord
+    include Countriable
 
     # Set constants
     CLEANING_FEE = 5_000.freeze
@@ -15,7 +16,7 @@ class Property < ApplicationRecord
     validates :address_1, presence: true
     validates :city, presence: true
     validates :state, presence: true
-    validates :country, presence: true
+    validates :country_code, presence: true
 
     # Convert column into a Money object with nil allowed
     monetize :price_cents, allow_nil: true
@@ -37,8 +38,8 @@ class Property < ApplicationRecord
 
     # Get address
     def address
-        #[address_1, address_2, city, state, country].compact.join(', ')
-        [state, country].compact.join(', ')
+        #[address_1, address_2, city, state, country_name].compact.join(', ')
+        [state, country_name].compact.join(', ')
     end
 
     # Get default_image
@@ -60,5 +61,6 @@ class Property < ApplicationRecord
         return Date.tomorrow.strftime(date_format)..Date.today.end_of_year.strftime(date_format) if next_reservation.nil?
             next_reservation.checkout_date.strftime(date_format)..Date.today.end_of_year.strftime(date_format)
     end
+
 
 end

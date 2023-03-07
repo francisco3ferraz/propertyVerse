@@ -24,9 +24,6 @@ class User < ApplicationRecord
     save!
   end
 
-  # Return the full name of the user
-  def full_name
-    "#{first_name} #{last_name}". squish
-  end
+  delegate :full_name, to: :profile
 
 end
