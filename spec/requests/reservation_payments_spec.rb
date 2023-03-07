@@ -20,22 +20,22 @@ RSpec.describe "ReservationPayments", type: :request do
     before do
         sign_in user
 
-        allow(Stripe::Customer).to receive(:retrieve).add_return(double(id: "user_id"))
-        allow(Stripe::Customer).to receive(:create_source).add_return(double(id: "card_id"))
-        allow(Stripe::Charge).to receive(:create).add_return(double(id: "charge_id"))
+        allow(Stripe::Customer).to receive(:retrieve).and_return(double(id: "user_id"))
+        allow(Stripe::Customer).to receive(:create_source).and_return(double(id: "card_id"))
+        allow(Stripe::Charge).to receive(:create).and_return(double(id: "charge_id"))
     
     end
 
     describe "POST create" do
         it "succeeds in creating a reservation" do
             expect { 
-                post reservation_payments_path, params: payment_params 
+                post reservation_payments_path, params: payments_params 
             }.to change { Reservation.count }.by(1)
         end
 
         it "succeeds in creating a payment" do
             expect { 
-                post reservation_payments_path, params: payment_params 
+                post reservation_payments_path, params: payments_params 
             }.to change { Payment.count }.by(1)
         end
     end

@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   # Route for creating reservation payments
   resources :reservation_payments, only: :create
 
+  # Route for showing user profiles
+  resources :profiles, only: :show
+
 end
