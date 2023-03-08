@@ -14,6 +14,7 @@ gem "money-rails", "~>1.12"
 gem "devise"
 gem "solargraph"
 gem 'jsonapi-serializer'
+gem "pundit"
 
 gem "country_select", "~> 6.0"
 
