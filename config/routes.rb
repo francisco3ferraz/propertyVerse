@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   # Route for showing and updating user accounts
   resources :accounts, only: [:show, :update]
 
+  # Route for showing and updating user passwords
+  resources :passwords, only: [:show, :update]
+
 end
