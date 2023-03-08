@@ -6,6 +6,8 @@ class Profile < ApplicationRecord
   # Association between Profile and User models
   belongs_to :user
 
+  has_one_attached :picture
+
   # Set object's geocoded location based on its address attribute
   geocoded_by :address
 
