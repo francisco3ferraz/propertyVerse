@@ -29,4 +29,7 @@ Rails.application.routes.draw do
   # Route for showing and updating user passwords
   resources :passwords, only: [:show, :update]
 
+  # Route for showing payments
+  resources :payments, only: :index
+
 end
