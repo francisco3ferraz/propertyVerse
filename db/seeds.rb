@@ -17,6 +17,7 @@ me.profile.picture.attach(io: user_pictures[0], filename: "#{me.full_name}.jpg")
 end
 
 10.times do |i|
+    user: me,
     property = Property.create!(
         name: Faker::Lorem.unique.word,
         headline: Faker::Lorem.unique.sentence,

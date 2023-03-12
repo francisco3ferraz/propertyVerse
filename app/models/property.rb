@@ -28,6 +28,7 @@ class Property < ApplicationRecord
     after_validation :geocode, if: -> { latitude.blank? && longitude.blank? }
 
     # Define model associations
+    belongs_to :user
     has_many_attached :images, dependent: :destroy
     has_many :favorites, dependent: :destroy
     has_many :favorited_users, through: :favorites, source: :user
