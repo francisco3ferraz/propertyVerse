@@ -14,6 +14,6 @@ class Reservation < ApplicationRecord
   validates :checkout_date, presence: true
 
   # Returns future reservations
-  scope :future_reservations, -> { where("checkout_date > ?", Date.today)}
+  scope :future_reservations, -> { where("checkout_date > ?", Date.today) }
 
 end
