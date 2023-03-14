@@ -3,7 +3,7 @@ import { toggle } from 'el-transition'
 
 export default class extends Controller 
 {
-    static targets = ['openUserMenu', 'userAuthLink'];
+    static targets = ['openUserMenu', 'userAuthLink', 'search'];
 
     // connect event listeners
     connect()
@@ -16,6 +16,11 @@ export default class extends Controller
             link.addEventListener('click', (e) => {
                 document.getElementById('user-auth-modal-trigger').click();
             })
+        })
+
+        this.searchTarget.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById(e.target.dataset.targetId).click();
         })
     }
 
