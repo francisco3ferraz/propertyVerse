@@ -5,55 +5,6 @@
     data-longitude="<%= current_user&.profile&.longitude %>"
     >
     <ul role="list" class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
-        <% @properties.each do |property| %>
-            <%= link_to property_path(property) do %>
-                <li 
-                    class="relative"
-                    data-geolocation-target="property"
-                    data-latitude="<%= property.latitude %>"
-                    data-longitude="<%= property.longitude %>"
-                >
-                    <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset overflow-hidden rounded-lg">
-                        <%= image_tag property.default_image, class: "object-cover pointer-events-none group-hover:opacity-75" %>
-                        <button type="button" class="absolute inset-0 focus:outline-none"> 
-                            <span class="sr-only">view details</span>
-                        </button>
-
-                        <div class="flex flex-row-reverse p-2">
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg"
-                                data-controller="favorites"
-                                data-favorited="<%= property.favorited_by?(current_user) %>"
-                                data-user-logged-in="<%= user_signed_in? %>"
-                                data-user-id="<%= current_user&.id %>"
-                                data-property-id="<%= property.id %>"
-                                data-favorited-color="#F47174"
-                                data-unfavorited-color="rgba(0, 0, 0, 0.5)"
-                                data-favorite-id="<%= property.favorites.find_by(user: current_user)&.id %>"
-                                data-action="click->favorites#favorite"
-                                fill="<%= property.favorited_by?(current_user) ? '#F47174' : 'rgba(0, 0, 0, 0.5)' %>" 
-                                viewBox="0 0 32 32"
-                                stroke-width="2px" 
-                                stroke="white" 
-                                class="w-6 h-6 cursor-pointer bg-transparent block"
-                            >
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z" />
-                            </svg>
-
-                        </div>
-                    </div>
-                    <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none"><%= property.city %>, <%= property.state %>, <%= property.country_name %></p>
-                    <p class="block text-sm font-medium text-gray-500 pointer-events-none text-black">
-                        <%= property.average_rating.round(2) %>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 inline-block relative" style="bottom: 2px;">
-                            <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
-                        </svg>
-                    </p>
-                    <p data-distance-away class="block text-sm font-medium text-gray-500 pointer-events-none"></p>
-                    <p class="block text-sm font-medium text-gray-500 pointer-events-none"><%= property.available_dates.first %> - <%= property.available_dates.last %></p>
-                    <p class="block text-sm font-medium text-gray-500 pointer-events-none"><span class="text-black"><%= humanized_money_with_symbol(property.price) %></span> per night</p>
-                </li>
-            <% end %>
-        <% end %>
+        <%= render @properties %>
     </ul>
 </div>
