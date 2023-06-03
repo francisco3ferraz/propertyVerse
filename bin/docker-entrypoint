@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "${*}" == "./bin/rails server" ]; then
+  DISABLE_DATABASE_ENVIRONMENT_CHECK=1 ./bin/rails db:drop
+  DISABLE_DATABASE_ENVIRONMENT_CHECK=1 ./bin/rails db:create
+  DISABLE_DATABASE_ENVIRONMENT_CHECK=1 ./bin/rails db:migrate
+  DISABLE_DATABASE_ENVIRONMENT_CHECK=1 ./bin/rails db:seed
+  
+fi
+
+exec "${@}"

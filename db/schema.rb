@@ -104,7 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_112113) do
     t.integer "reviews_count", default: 0, null: false
     t.decimal "average_rating", default: "0.0", null: false
     t.string "country_code"
-    t.bigint "user_id", null: false
+    t.bigint "user_id", null: true
     t.index ["latitude", "longitude"], name: "index_properties_on_latitude_and_longitude"
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
