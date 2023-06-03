@@ -9,7 +9,7 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man
 
 # Rails app lives here
-WORKDIR /home/franciscofferraz/school/propertyVerse
+WORKDIR /home/franciscofferraz/propertyVerse
 
 # Set production environment
 ENV RAILS_LOG_TO_STDOUT="1" \
@@ -31,7 +31,7 @@ RUN bundle exec bootsnap precompile --gemfile app/ lib/
 RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
 
 # Entrypoint prepares the database.
-ENTRYPOINT ["/home/franciscofferraz/school/propertyVerse/bin/docker-entrypoint"]
+ENTRYPOINT ["/home/franciscofferraz/propertyVerse/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
