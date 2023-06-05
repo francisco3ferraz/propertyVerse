@@ -12,7 +12,6 @@ gem "sprockets-rails"
 gem "geocoder"
 gem "money-rails", "~>1.12"
 gem "devise"
-gem "solargraph"
 gem 'jsonapi-serializer'
 gem "pundit"
 

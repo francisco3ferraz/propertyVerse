@@ -34,6 +34,8 @@ module PropertyVerse
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    config.assets.css_compressor = nil
+
     config.stripe.publishable_key= ENV["STRIPE_PUBLISHABLE_KEY"]
     config.stripe.secret_key= ENV["STRIPE_SECRET_KEY"]
   end
