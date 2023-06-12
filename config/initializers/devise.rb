@@ -18,7 +18,7 @@ Devise.setup do |config|
 
   config.expire_all_remember_me_on_sign_out = true
 
-  config.password_length = 1..128
+  config.password_length = 6..128
 
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
 
@@ -27,5 +27,8 @@ Devise.setup do |config|
   config.navigational_formats = ['*/*', :html, :turbo_stream]
 
   config.sign_out_via = :delete
+
+  config.responder.error_status = :unprocessable_entity
+  config.responder.redirect_status = :see_other
 
 end
