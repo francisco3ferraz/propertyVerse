@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   # Route for showing and updating user profiles
   resources :profiles, only: [:show, :update]
 
+  # Route to show the favorited properties of the current user
+  resources :favorites, only: [:show, :index]
+
   # Route for showing and updating user accounts
   resources :accounts, only: [:show, :update]
 

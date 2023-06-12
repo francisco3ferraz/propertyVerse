@@ -90,7 +90,7 @@
                         <div class="py-1" role="none">
                             <% if user_signed_in? %>
                                 <%= link_to 'My Profile', profile_path(current_user.profile), class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
-                                <%= link_to 'Saved Properties', profile_path(current_user.profile), class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
+                                <%= link_to 'Saved Properties', favorites_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
                                 <%= link_to "Sign Out", destroy_user_session_path, data: { "turbo-method": "delete" }, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
                                 
                             <% else %>
@@ -100,7 +100,7 @@
                         </div>
                         <div class="py-1" role="none">
                             <% if user_signed_in? && !current_user.host?%>
-                                <%= link_to "Host your home", hostify_path(user_id: current_user.id), data: { "turbo-method": :put }, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role:"menuitem", tabindex:"-1", id:"user-menu-item-0"%>
+                                <%= link_to "Host your home", hostify_path, data: { "turbo-method": :put }, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role:"menuitem", tabindex:"-1", id:"user-menu-item-0"%>
                             <% elsif user_signed_in? && current_user.host? %>
                                 <%= link_to 'Host Dashboard', host_dashboard_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role:"menuitem", tabindex:"-1", id:"user-menu-item-0"%>
                             <% elsif !user_signed_in? %>
