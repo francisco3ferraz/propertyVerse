@@ -6,11 +6,11 @@ module Properties
             @properties = Property.all
 
             if search_params[:city].present?
-                @properties = Property.city(search_params[:city])
+                @properties = @properties.city(search_params[:city])
             end
 
             if search_params[:country_code].present?
-                @properties = Property.country_code(search_params[:country_code])
+                @properties = @properties.country_code(search_params[:country_code])
             end
 
             properties_without_reservations = @properties.includes(:reservations).select { |property| property.reservations.size.zero? }
