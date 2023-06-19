@@ -7,19 +7,20 @@ export default class extends Controller {
         this.mapTarget.style.height = "100%";
         const firstProperty = this.propertyTargets[0];
         const firstPosition = { lat: parseFloat(firstProperty.dataset.latitude), lng: parseFloat(firstProperty.dataset.longitude) }
-        const map = new google.maps.Map(this.mapTarget, {
-                            center: firstPosition,
-                            zoom: 12,
-                        });
-        window.initMap = map;
 
-        this.propertyTargets.forEach((property) => {
-            const position = { lat: parseFloat(property.dataset.latitude), lng: parseFloat(property.dataset.longitude) }
-            const marker = new google.maps.Marker({
-                position,
-                map,
+        window.initMap = function() {
+            const map = new google.maps.Map(this.mapTarget, {
+                center: firstPosition,
+                zoom: 12,
             });
-        });
-    }
 
+            this.propertyTargets.forEach((property) => {
+                const position = { lat: parseFloat(property.dataset.latitude), lng: parseFloat(property.dataset.longitude) }
+                const marker = new google.maps.Marker({
+                    position,
+                    map,
+                });
+            });
+        }.bind(this);
+    }
 }
