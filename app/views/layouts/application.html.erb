@@ -25,7 +25,7 @@
       <%= yield %>
 
       <% if controller_name == "search" %>
-        <script async
+        <script defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAolr-4A514ht9YzkgY3PsvPawUG5iIO8Y&callback=initMap">
         </script>
       <% end %>

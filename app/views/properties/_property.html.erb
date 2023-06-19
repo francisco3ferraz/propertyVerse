@@ -5,6 +5,11 @@
         data-google-maps-target="property"
         data-latitude="<%= property.latitude %>"
         data-longitude="<%= property.longitude %>"
+        data-name="<%= property.name %>"
+        data-picture="<%= url_for(property.default_image) %>"
+        data-reviews="<%= property.average_rating.round(2) %>"
+        data-price="<%= humanized_money_with_symbol(property.price) %>"
+        data-propertyurl="<%= property_path(property) %>"
     >
         <div class="group block w-full aspect-w-10 aspect-h-7 bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset overflow-hidden rounded-lg">
             <%= image_tag property.default_image, class: "object-cover pointer-events-none group-hover:opacity-75" %>
