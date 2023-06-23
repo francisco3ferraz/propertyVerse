@@ -6,7 +6,8 @@ user_pictures = []
   user_pictures << URI.parse(Faker::LoremFlickr.image).open
 end
 
-me = User.create(email: "admin@propertyverse.com", password: "admin")
+me = User.create(email: "admin@propertyverse.com", password: "admin123")
+me.create_profile
 me.profile.update(first_name: "Francisco", last_name: "Ferraz")
 me.profile.picture.attach(io: user_pictures[0], filename: "#{me.full_name}.jpg")
 

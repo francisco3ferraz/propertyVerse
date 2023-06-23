@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
-  
+
   # Association between Reservation and Property models
   belongs_to :property
 

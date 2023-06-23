@@ -7,6 +7,5 @@ class Favorite < ApplicationRecord
 
   # Association between Favorite and Property models
   belongs_to :property
-  
-end
 
+end

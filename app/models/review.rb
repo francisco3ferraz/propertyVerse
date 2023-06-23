@@ -8,7 +8,7 @@ class Review < ApplicationRecord
     # Associations
     belongs_to :reviewable, polymorphic: true, counter_cache: true
     belongs_to :user
-    
+
     # Callback
     after_commit :update_average_rating, on: [:create, :update]
 
@@ -16,5 +16,5 @@ class Review < ApplicationRecord
     def update_average_rating
         reviewable.update!(average_rating: reviewable.reviews.average(:rating))
     end
-    
+
 end
