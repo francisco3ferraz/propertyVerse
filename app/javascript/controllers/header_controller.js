@@ -18,13 +18,12 @@ export default class extends Controller
             })
         })
 
-        // wait for the DOM to finish loading before adding the event listener
-        document.addEventListener('DOMContentLoaded', () => {
-            this.searchTarget.addEventListener('click', (e) => {
-                e.preventDefault();
+        this.searchTarget.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (e.target.dataset.targetId) {
                 document.getElementById(e.target.dataset.targetId).click();
-            })
-        });
+            }
+        })
     }
 
     // toggle the dropdown menu
