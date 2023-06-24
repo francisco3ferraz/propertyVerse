@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import { toggle } from 'el-transition'
 
-export default class extends Controller 
+export default class extends Controller
 {
     static targets = ['openUserMenu', 'userAuthLink', 'search'];
 
@@ -18,10 +18,13 @@ export default class extends Controller
             })
         })
 
-        this.searchTarget.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById(e.target.dataset.targetId).click();
-        })
+        // wait for the DOM to finish loading before adding the event listener
+        document.addEventListener('DOMContentLoaded', () => {
+            this.searchTarget.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById(e.target.dataset.targetId).click();
+            })
+        });
     }
 
     // toggle the dropdown menu
