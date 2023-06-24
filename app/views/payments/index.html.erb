@@ -43,12 +43,12 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= humanized_money_with_symbol(payment.total)%></td>
                             <% if payment.reservation.property.reviews.where(user_id: current_user.id).empty? %>
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <%= link_to 'Add review', new_review_path(property_id: payment.reservation.property.id), class: "text-blue-500 hover:text-blue-800", target: :_blank %>
+                                <%= link_to 'Add review', new_review_path(property_id: payment.reservation.property.id), class: "text-blue-500 hover:text-blue-800", target: :_self %>
                               </td>
                             <% end %>
 
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <%= link_to 'View property', property_path(payment.reservation.property), class: "text-blue-500 hover:text-blue-800", target: :_blank %>
+                                <%= link_to 'View property', property_path(payment.reservation.property), class: "text-blue-500 hover:text-blue-800", target: :_self %>
                             </td>
                             </tr>
                         <% end %>
