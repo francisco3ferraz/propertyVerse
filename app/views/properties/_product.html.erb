@@ -5,8 +5,8 @@
     </div>
 
     <!-- Reservation Component -->
-    <div 
-        class="mt-4 lg:row-span-3 lg:mt-0" 
+    <div
+        class="mt-4 lg:row-span-3 lg:mt-0"
         data-controller="reservation-component"
         data-default-checkin-date="<%= Date.tomorrow.to_formatted_s(:eu_short_date) %>"
         data-default-checkout-date="<%= (Date.tomorrow + 1.day).to_formatted_s(:eu_short_date) %>"
@@ -18,24 +18,24 @@
             <h2 class="text-2xl font-medium text-gray-900"><%= humanized_money_with_symbol(@property.price) %></span> night</h2>
 
             <div class="isolate -space-y-px rounded-md shadow-sm mt-6">
-                <div class="border border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
+                <div class="border border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600">
                     <label for="name" class="block text-xs font-medium text-gray-900 uppercase">Check-in</label>
-                    <input 
-                        type="text" 
-                        name="name" 
-                        id="name" 
-                        class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" 
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
                         placeholder="3/1/2023"
                         data-reservation-component-target="checkin"
                     >
                 </div>
-                <div class="border mt-6 border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600">
+                <div class="border mt-6 border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-blue-600 focus-within:border-blue-600">
                     <label for="name" class="block text-xs font-medium text-gray-900 uppercase">Checkout</label>
-                    <input 
-                        type="text" 
-                        name="name" 
-                        id="name" 
-                        class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" 
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
                         placeholder="3/20/2023"
                         data-reservation-component-target="checkout"
                     >
@@ -65,9 +65,9 @@
                 </dl>
 
                 <div class="pt-6">
-                    <button 
-                        type="submit" 
-                        class="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                    <button
+                        type="submit"
+                        class="w-full bg-blue-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-blue-500"
                         data-action="reservation-component#submitReservationComponent"
                         data-submit-url="<%= new_property_reservation_path(@property) %>"
                     >
@@ -84,7 +84,7 @@
             <h3 class="sr-only">Description</h3>
 
             <div class="space-y-6">
-                <p class="text-base text-gray-900"><%= truncate @property.description, length: 500 %></p> 
+                <p class="text-base text-gray-900"><%= truncate @property.description, length: 500 %></p>
 
                 <% if @property.description.length > 500 %>
                     <%= link_to 'Show more', "", class: "text-lg font-medium underline",data: { action: "property#readDescription" } %>

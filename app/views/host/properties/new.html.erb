@@ -16,58 +16,58 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
                             <%= f.label :name, class: "block text-sm font-medium text-gray-700"%>
-                            <%= f.text_field :name, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"%>
+                            <%= f.text_field :name, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                         </div>
 
                         <div class="col-span-6">
                             <%= f.label :headline, class: "block text-sm font-medium text-gray-700"%>
-                            <%= f.text_field :headline, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"%>
+                            <%= f.text_field :headline, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                         </div>
 
                         <div class="col-span-6">
                             <%= f.label :description, class: "block text-sm font-medium text-gray-700"%>
-                            <%= f.text_area :description, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"%>
+                            <%= f.text_area :description, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                         </div>
 
                         <div class="col-span-6">
                             <%= f.label :images, class: "block text-sm font-medium text-gray-700" %>
-                            <%= f.file_field :images, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+                            <%= f.file_field :images, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
                         </div>
 
                         <div class="col-span-6">
                             <%= f.label :address_1, class: "block text-sm font-medium text-gray-700"%>
-                            <%= f.text_field :address_1, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"%>
+                            <%= f.text_field :address_1, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                         </div>
 
                         <div class="col-span-6 sm:col-span-6 lg:col-span-3">
                             <%= f.label :address_2, class: "block text-sm font-medium text-gray-700"%>
-                            <%= f.text_field :address_2, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"%>
+                            <%= f.text_field :address_2, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                         </div>
 
                         <div class="col-span-6 sm:col-span-3 lg:col-span-3">
                             <%= f.label :zip_code, class: "block text-sm font-medium text-gray-700"%>
-                            <%= f.text_field :zip_code, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"%>
+                            <%= f.text_field :zip_code, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                        </div>
 
                         <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                             <%= f.label :city, class: "block text-sm font-medium text-gray-700"%>
-                            <%= f.text_field :city, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"%>
+                            <%= f.text_field :city, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                        </div>
 
                         <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                             <%= f.label :state, class: "block text-sm font-medium text-gray-700"%>
-                            <%= f.text_field :state, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"%>
+                            <%= f.text_field :state, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                        </div>
 
                         <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                             <%= f.label :country_code, class: "block text-sm font-medium text-gray-700" %>
-                            <%= f.country_select :country_code, { priority_countries: ["PT"] }, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+                            <%= f.country_select :country_code, { priority_countries: ["PT"] }, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
                         </div>
 
                     </div>
                     </div>
                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button type="submit" class="bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+                    <button type="submit" class="bg-blue-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Save</button>
                     </div>
                 </div>
             <% end %>

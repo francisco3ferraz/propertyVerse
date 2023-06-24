@@ -1,6 +1,6 @@
 <header data-controller="header">
     <div class="max-w-screen-2xl mx-auto px-2 sm:px-4 lg:divide-y lg:divide-gray-200 lg:px-8">
-        <div class="relative h-20 flex justify-between">       
+        <div class="relative h-20 flex justify-between">
             <div class="relative z-10 px-2 flex lg:px-0">
                 <div class="flex-shrink-0 flex items-center">
                     <%= link_to root_path do %>
@@ -19,7 +19,7 @@
                 </div>
             </div>
                         <!-- Search Bar -->
-                        
+
             <div class="relative z-0 flex-1 px-2 flex items-center justify-center sm:absolute sm:inset-0">
                 <button id="search" name="search" type="search" data-header-target="search" data-target-id="search-form" type="submit" class="p-2.5 ml-2 text-sm text-blue-500 bg-white rounded-full border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 w-48 flex items-center">
                     <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -30,7 +30,7 @@
 
             <div class="relative z-10 flex items-center lg:hidden">
                 <!-- Mobile menu button -->
-                <button type="button" class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                <button type="button" class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
                 <span class="sr-only">Open menu</span>
                 <!--
                     Icon when menu is closed.
@@ -59,7 +59,7 @@
                 <!-- Profile dropdown -->
                 <div class="flex-shrink-0 relative ml-4">
                     <div>
-                        <button data-header-target="openUserMenu" type="button" class="bg-white rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                        <button data-header-target="openUserMenu" type="button" class="bg-white rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                             <span class="sr-only">Open user menu</span>
                             <%= image_tag current_user&.profile&.picture.present? ? current_user&.profile&.picture : default_profile_picture, class: "h-8 w-8 rounded-full" %>
                         </button>
@@ -68,9 +68,9 @@
                     <div
                         class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none"
                         role="menu"
-                        id="menu-dropdown-items" 
-                        aria-orientation="vertical" 
-                        aria-labelledby="user-menu-button" 
+                        id="menu-dropdown-items"
+                        aria-orientation="vertical"
+                        aria-labelledby="user-menu-button"
                         tabindex="-1"
                         data-transition-enter="transition ease-out duration-100"
                         data-transition-enter-start="transform opacity-0 scale-95"
@@ -84,10 +84,10 @@
                             <% if user_signed_in? %>
                                 <%= link_to 'My Profile', profile_path(current_user.profile), class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
                                 <%= link_to 'Saved Properties', favorites_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
-                                                             
+
                             <% else %>
                                 <a data-header-target="userAuthLink" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">Sign Up</a>
-                                <a data-header-target="userAuthLink" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Sign In</a>                
+                                <a data-header-target="userAuthLink" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Sign In</a>
                             <% end %>
                         </div>
                         <div class="py-1" role="none">
@@ -99,15 +99,15 @@
                             <% elsif !user_signed_in? %>
                                 <%= link_to "Host your home", new_user_session_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role:"menuitem", tabindex:"-1", id:"user-menu-item-0"%>
                             <% end %>
-                            <hr class="h-px bg-gray-200 border-0">   
+                            <hr class="h-px bg-gray-200 border-0">
                             <%= link_to "Sign Out", destroy_user_session_path, data: { "turbo-method": "delete" }, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
 
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div> 
-        
+        </div>
+
 </header>
 
 <hr class="h-px bg-gray-200 border-0">
