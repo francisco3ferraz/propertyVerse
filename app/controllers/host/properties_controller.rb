@@ -25,7 +25,7 @@ module Host
             params.require(:property).permit(
                 :name, :headline, :description, :images,
                 :address_1, :address_2, :city, :state,
-                :zip_code, :country_code
+                :zip_code, :country_code, :price_cents
             )
         end
     end
