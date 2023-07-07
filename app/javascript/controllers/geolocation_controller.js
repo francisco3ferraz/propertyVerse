@@ -12,13 +12,19 @@ export default class extends Controller
     {
         if (isEmpty(this.element.dataset.latitude) && isEmpty(this.element.dataset.longitude))
         {
-            // Get the user's coordinates using their device's geolocation
-            window.navigator.geolocation.getCurrentPosition((position) =>
-            {
-                // Set the user's coordinates in the dataset and calculate distance
-                this.setUserCoordinates(position.coords);
-                this.setDistanceText();
-            });
+            // Prompt the user to allow geolocation
+            window.navigator.geolocation.getCurrentPosition(
+                (position) =>
+                {
+                    // Set the user's coordinates in the dataset and calculate distance
+                    this.setUserCoordinates(position.coords);
+                    this.setDistanceText();
+                },
+                (error) =>
+                {
+                    console.error(error);
+                }
+            );
         } else {
             // The user's coordinates are already in the dataset, calculate distance
             this.setDistanceText();
@@ -26,10 +32,13 @@ export default class extends Controller
     }
 
     // Set the user's coordinates in the dataset
-    setUserCoordinates(coordinates)
+    setUserCoordinates(coords)
     {
-        this.element.dataset.latitude = coordinates.latitude;
-        this.element.dataset.longitude = coordinates.longitude;
+        if (coords && coords.latitude && coords.longitude)
+        {
+            this.element.dataset.latitude = coords.latitude;
+            this.element.dataset.longitude = coords.longitude;
+        }
     }
 
     // Get the user's coordinates from the dataset
