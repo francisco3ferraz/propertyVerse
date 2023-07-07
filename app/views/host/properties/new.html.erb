@@ -39,15 +39,21 @@
                             <%= f.text_field :address_1, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                         </div>
 
-                        <div class="col-span-6 sm:col-span-6 lg:col-span-3">
+                        <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                             <%= f.label :address_2, class: "block text-sm font-medium text-gray-700"%>
                             <%= f.text_field :address_2, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                         </div>
 
-                        <div class="col-span-6 sm:col-span-3 lg:col-span-3">
+                        <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                            <%= f.label :price_cents, class: "block text-sm font-medium text-gray-700" %>
+                            <%= f.text_field :price_cents, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                             <%= f.label :zip_code, class: "block text-sm font-medium text-gray-700"%>
                             <%= f.text_field :zip_code, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"%>
                        </div>
+
 
                         <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                             <%= f.label :city, class: "block text-sm font-medium text-gray-700"%>
@@ -64,10 +70,6 @@
                             <%= f.country_select :country_code, { priority_countries: ["PT"] }, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
                         </div>
 
-                        <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                            <%= f.label :price_cents, class: "block text-sm font-medium text-gray-700" %>
-                            <%= f.text_field :price_cents, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" %>
-                        </div>
 
                     </div>
                     </div>
