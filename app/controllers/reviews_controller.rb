@@ -19,11 +19,12 @@ class ReviewsController < ApplicationController
 
   def create
 
-    @review = current_user.reviews.build(review_params)
-    @review.reviewable = Property.find_by(params[:property_id])
+    @property = Property.find_by(id: params[:review][:property_id])
+    @review = @property.reviews.build(review_params)
+    @review.user = current_user
 
     if @review.save
-      redirect_to property_path(@review.reviewable), notice: 'Review created successfully.'
+      redirect_to property_path(params[:review][:property_id])
     else
       render :new
     end

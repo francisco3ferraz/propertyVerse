@@ -6,6 +6,8 @@
       <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
         <section>
             <%= form_with(model: [@review], local: true, data: { turbo: false }) do |f| %>
+                <%= f.hidden_field :property_id, value: params[:property_id] %>
+                <%= f.hidden_field :reviewable_type, value: "Property" %>
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                         <div>

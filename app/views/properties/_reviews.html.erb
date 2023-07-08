@@ -69,7 +69,11 @@
               <% @property.reviews.includes(user: :profile).each do |review| %>
                 <div class="py-12">
                   <div class="flex items-center">
+                  <% if review.user.profile.picture.present? %>
                     <%= image_tag review.user.profile.picture, class: "h-12 w-12 rounded-full", alt: review.user.full_name %>
+                  <% else %>
+                    <%= image_tag default_profile_picture, class: "h-12 w-12 rounded-full", alt: review.user.full_name %>
+                  <% end %>
                     <div class="ml-4">
                       <h4 class="text-sm font-bold text-gray-900"><%= review.user.full_name %></h4>
                       <div class="mt-1 flex items-center">
